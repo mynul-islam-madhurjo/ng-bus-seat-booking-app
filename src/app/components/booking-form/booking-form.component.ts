@@ -60,7 +60,6 @@ export class BookingFormComponent implements OnInit {
       };
 
       this.storageService.addBooking(booking);
-      this.toastService.show('Booking confirmed successfully!', 'success');
       this.bookingComplete.emit();
     }
   }

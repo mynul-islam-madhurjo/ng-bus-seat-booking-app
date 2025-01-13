@@ -15,7 +15,7 @@ import { Booking } from '../../models/booking.interface';
           </div>
           <div class="booking-details">
             <p><strong>Name:</strong> {{booking.name}}</p>
-            <p><strong>Bus No:</strong> {{booking.busNo}}</p>
+            <p><strong>Bus No:</strong> {{booking.busId}}</p>
             <p><strong>Destination:</strong> {{booking.destination}}</p>
             <p><strong>Time:</strong> {{booking.time}}</p>
           </div>

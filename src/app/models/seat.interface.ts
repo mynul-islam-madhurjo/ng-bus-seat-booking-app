@@ -3,4 +3,5 @@ export interface Seat {
   number: string;
   isBooked: boolean;
   position: string;
+  busId?: string;
 }

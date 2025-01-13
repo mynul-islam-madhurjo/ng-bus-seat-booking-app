@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
     <app-navbar></app-navbar>
 
     <!-- Main Content Area -->
+    <app-toast></app-toast>
     <main class="main-content">
       <div class="container">
         <router-outlet></router-outlet>

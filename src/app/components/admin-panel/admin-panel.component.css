@@ -1,0 +1,94 @@
+.admin-container {
+  padding: 3rem;
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+.admin-header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.admin-header h2 {
+  font-size: 2.8rem;
+  color: var(--color-dark-1);
+  margin-bottom: 1rem;
+}
+
+.admin-header p {
+  font-size: 1.6rem;
+  color: var(--color-dark-2);
+}
+
+.bus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+  gap: 2rem;
+}
+
+.bus-card {
+  background-color: var(--color-white-1);
+  border-radius: 1.2rem;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.bus-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.bus-number {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+}
+
+.bus-info {
+  margin-bottom: 2rem;
+}
+
+.bus-info p {
+  margin: 0.8rem 0;
+  font-size: 1.4rem;
+  color: var(--color-dark-2);
+}
+
+.route {
+  font-weight: 600;
+  color: var(--color-dark-1) !important;
+}
+
+.btn-details {
+  width: 100%;
+  padding: 1.2rem;
+  background-color: var(--color-primary);
+  color: var(--color-white-1);
+  border: none;
+  border-radius: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-details:hover {
+  background-color: #a62828;
+}
+
+@media (max-width: 768px) {
+  .admin-container {
+    padding: 2rem;
+  }
+
+  .bus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bus-card {
+    padding: 1.5rem;
+  }
+}

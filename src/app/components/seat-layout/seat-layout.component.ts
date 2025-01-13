@@ -1,6 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {Seat} from "../../models/seat.interface";
-import {StorageService} from "../../services/storage.service";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Seat } from "../../models/seat.interface";
+import { StorageService } from "../../services/storage.service";
+import { ToastService } from "../../services/toast.service";
 
 @Component({
   selector: 'app-seat-layout',
@@ -11,30 +13,34 @@ export class SeatLayoutComponent implements OnInit {
   seats: Seat[][] = [];
   selectedSeat: Seat | null = null;
   showBookingForm = false;
+  currentBusId: string = '1';
 
   rows = ['A', 'B', 'C', 'D', 'E'];
   columns = [1, 2, 3];
 
-  constructor(private storageService: StorageService) {
-  }
+  constructor(
+    private storageService: StorageService,
+    private toastService: ToastService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.loadSeats();
+    this.route.params.subscribe(params => {
+      if (params['id']) {
+        this.currentBusId = params['id'];
+        this.loadSeats();
+      } else {
+        this.loadSeats();
+      }
+    });
   }
 
   loadSeats() {
-    this.seats = this.storageService.getAllSeats();
-  }
-
-  initializeSeats() {
-    this.seats = this.rows.map(row =>
-      this.columns.map(col => ({
-        id: `${row}${col}`,
-        number: `${row}${col}`,
-        isBooked: Math.random() < 0.3,
-        position: `${row}${col}`
-      }))
-    );
+    if (this.currentBusId) {
+      this.seats = this.storageService.getSeatsByBusId(this.currentBusId);
+    } else {
+      this.seats = this.storageService.getAllSeats();
+    }
   }
 
   getSeat(row: string, col: number): Seat {
@@ -55,7 +61,7 @@ export class SeatLayoutComponent implements OnInit {
     const seat = this.getSeat(row, col);
 
     if (seat.isBooked) {
-      alert('This seat is already booked');
+      this.toastService.show('This seat is already booked', 'error');
       return;
     }
 

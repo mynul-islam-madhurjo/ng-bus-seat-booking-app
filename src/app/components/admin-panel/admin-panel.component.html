@@ -1,1 +1,20 @@
-<p>admin-panel works!</p>
+<div class="admin-container">
+  <div class="admin-header">
+    <h2>Bus Management Panel</h2>
+    <p>Select a bus to view seat details and bookings</p>
+  </div>
+
+  <div class="bus-grid">
+    <div class="bus-card" *ngFor="let bus of buses" (click)="viewBusDetails(bus.id)">
+      <div class="bus-number">{{bus.busNumber}}</div>
+      <div class="bus-info">
+        <p class="route">{{bus.route}}</p>
+        <p class="time">Departure: {{bus.departureTime}}</p>
+        <p class="seats">Total Seats: {{bus.totalSeats}}</p>
+      </div>
+      <div class="view-details">
+        <button class="btn-details">View Details</button>
+      </div>
+    </div>
+  </div>
+</div>

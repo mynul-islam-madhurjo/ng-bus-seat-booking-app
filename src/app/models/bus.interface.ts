@@ -1,7 +1,7 @@
-import {Seat} from "./seat.interface";
-
 export interface Bus {
   id: string;
   busNumber: string;
-  seats: Seat[];
+  route: string;
+  totalSeats: number;
+  departureTime: string;
 }

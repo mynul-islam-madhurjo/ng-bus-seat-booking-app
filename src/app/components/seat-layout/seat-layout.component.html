@@ -1,6 +1,19 @@
 <div class="seat-layout-container">
   <div class="seat-layout-header">
-    <h2>Select Your Seat</h2>
+    <h2>{{ isAdminView ? 'Seat Management' : 'Select Your Seat' }}</h2>
+
+    <div class="bus-details" *ngIf="currentBus">
+      <div class="bus-number">{{currentBus.busNumber}}</div>
+      <div class="bus-route">
+        <i class="fas fa-bus"></i>
+        {{currentBus.route}}
+      </div>
+      <div class="bus-time">
+        <i class="fas fa-clock"></i>
+        Departure: {{currentBus.departureTime}}
+      </div>
+    </div>
+
     <div class="seat-info">
       <div class="seat-type">
         <span class="seat available"></span>
@@ -10,7 +23,7 @@
         <span class="seat booked"></span>
         <p>Booked</p>
       </div>
-      <div class="seat-type">
+      <div *ngIf="!isAdminView" class="seat-type">
         <span class="seat selected"></span>
         <p>Selected</p>
       </div>
@@ -29,7 +42,8 @@
           <div
             class="seat"
             [class.booked]="isSeatBooked(row, col)"
-            [class.selected]="isSeatSelected(row, col)"
+            [class.selected]="!isAdminView && isSeatSelected(row, col)"
+            [class.clickable]="isAdminView || !isSeatBooked(row, col)"
             (click)="onSeatClick(row, col)"
           >
             {{row}}{{col}}
@@ -40,9 +54,17 @@
   </div>
 
   <app-booking-form
-    *ngIf="showBookingForm && selectedSeat"
+    *ngIf="!isAdminView && showBookingForm && selectedSeat && currentBus"
     [selectedSeat]="selectedSeat"
+    [currentBus]="currentBus"
     (bookingComplete)="showBookingForm = false"
   >
   </app-booking-form>
+
+  <app-booking-details-modal
+    *ngIf="isAdminView && showAdminModal && selectedBooking"
+    [booking]="selectedBooking"
+    (onClose)="closeAdminModal()"
+  >
+  </app-booking-details-modal>
 </div>

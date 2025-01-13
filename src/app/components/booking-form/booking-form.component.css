@@ -9,22 +9,44 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 2rem;
 }
 
 .booking-form-wrapper {
   background-color: var(--color-white-1);
   border-radius: 1.2rem;
   padding: 3rem;
-  width: 90%;
+  width: 100%;
   max-width: 50rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
-.form-title {
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.form-header h3 {
   font-size: 2.4rem;
   color: var(--color-dark-1);
-  margin-bottom: 2rem;
-  text-align: center;
+  font-weight: 600;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--color-dark-2);
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: var(--color-primary);
 }
 
 .booking-form {
@@ -46,9 +68,17 @@
 }
 
 label {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
   font-size: 1.4rem;
   color: var(--color-dark-2);
   font-weight: 500;
+}
+
+label i {
+  color: var(--color-primary);
+  font-size: 1.6rem;
 }
 
 input, select {
@@ -56,15 +86,22 @@ input, select {
   border: 1px solid var(--color-dark-2);
   border-radius: 0.8rem;
   font-size: 1.6rem;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 input:focus, select:focus {
   outline: none;
   border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(197, 49, 49, 0.1);
 }
 
-input.error, select.error {
+.readonly-input {
+  background-color: var(--color-white-2);
+  color: var(--color-dark-1);
+  font-weight: 500;
+}
+
+.error {
   border-color: var(--color-primary);
 }
 
@@ -78,10 +115,13 @@ input.error, select.error {
   display: flex;
   justify-content: flex-end;
   gap: 1.6rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .btn {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
   padding: 1.2rem 2.4rem;
   border-radius: 0.8rem;
   font-size: 1.6rem;
@@ -91,12 +131,16 @@ input.error, select.error {
   border: none;
 }
 
+.btn i {
+  font-size: 1.8rem;
+}
+
 .btn-primary {
   background-color: var(--color-primary);
   color: var(--color-white-1);
 }
 
-.btn-primary:hover {
+.btn-primary:hover:not(:disabled) {
   background-color: #a62828;
 }
 
@@ -117,12 +161,11 @@ input.error, select.error {
 @media (max-width: 768px) {
   .booking-form-wrapper {
     padding: 2rem;
-    width: 95%;
   }
 
   .form-row {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   .btn {

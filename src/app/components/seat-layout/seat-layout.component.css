@@ -1,7 +1,10 @@
 .seat-layout-container {
-  padding: 2rem;
+  padding: 3rem;
   max-width: 80rem;
   margin: 0 auto;
+  background-color: var(--color-white-1);
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .seat-layout-header {
@@ -10,15 +13,44 @@
 }
 
 .seat-layout-header h2 {
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   color: var(--color-dark-1);
   margin-bottom: 2rem;
+}
+
+.bus-details {
+  margin: 2rem 0;
+  padding: 2rem;
+  background-color: var(--color-white-2);
+  border-radius: 0.8rem;
+}
+
+.bus-number {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.bus-route, .bus-time {
+  font-size: 1.6rem;
+  color: var(--color-dark-2);
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.bus-route i, .bus-time i {
+  color: var(--color-primary);
 }
 
 .seat-info {
   display: flex;
   justify-content: center;
   gap: 3rem;
+  margin-top: 2rem;
 }
 
 .seat-type {
@@ -36,20 +68,21 @@
   background-color: var(--color-white-2);
   padding: 3rem;
   border-radius: 1.2rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 3rem;
 }
 
 .driver-section {
   text-align: center;
   margin-bottom: 3rem;
-  padding: 1rem;
+  padding: 1.5rem;
   background-color: var(--color-white-1);
   border-radius: 0.8rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .driver-section i {
   font-size: 2.4rem;
-  color: var(--color-dark-1);
+  color: var(--color-primary);
   margin-bottom: 0.5rem;
 }
 
@@ -83,11 +116,13 @@
   font-size: 1.4rem;
   color: var(--color-dark-1);
   transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .seat:hover:not(.booked) {
   transform: scale(1.05);
   border-color: var(--color-primary);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .seat.booked {
@@ -102,15 +137,19 @@
   color: var(--color-white-1);
 }
 
+.clickable {
+  cursor: pointer !important;
+}
+
 @media (max-width: 768px) {
   .seat-layout-container {
-    padding: 1rem;
+    padding: 2rem;
   }
 
   .seat-info {
     flex-direction: column;
-    gap: 1rem;
     align-items: center;
+    gap: 1.5rem;
   }
 
   .seat-row {

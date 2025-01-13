@@ -12,10 +12,13 @@ import {RouterModule, Routes} from "@angular/router";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { BookingListComponent } from './components/booking-list/booking-list.component';
 import { ToastComponent } from './components/shared/toast/toast.component';
+import { BusSelectionComponent } from './components/bus-selection/bus-selection.component';
+import { BookingDetailsModalComponent } from './components/booking-details-modal/booking-details-modal.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/booking', pathMatch: 'full' },
-  { path: 'booking', component: SeatLayoutComponent },
+  { path: '', redirectTo: '/select-bus', pathMatch: 'full' },
+  { path: 'select-bus', component: BusSelectionComponent },
+  { path: 'booking/:id', component: SeatLayoutComponent },
   { path: 'booking-list', component: BookingListComponent },
   { path: 'admin', component: AdminPanelComponent },
   { path: 'admin/bus/:id', component: SeatLayoutComponent },
@@ -32,7 +35,9 @@ const routes: Routes = [
     ModalComponent,
     NavbarComponent,
     BookingListComponent,
-    ToastComponent
+    ToastComponent,
+    BusSelectionComponent,
+    BookingDetailsModalComponent
   ],
   imports: [
     BrowserModule,

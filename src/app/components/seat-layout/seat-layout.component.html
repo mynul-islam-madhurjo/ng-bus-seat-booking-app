@@ -1,1 +1,49 @@
-<p>seat-layout works!</p>
+<div class="seat-layout-container">
+  <div class="seat-layout-header">
+    <h2>Select Your Seat</h2>
+    <div class="seat-info">
+      <div class="seat-type">
+        <span class="seat available"></span>
+        <p>Available</p>
+      </div>
+      <div class="seat-type">
+        <span class="seat booked"></span>
+        <p>Booked</p>
+      </div>
+      <div class="seat-type">
+        <span class="seat selected"></span>
+        <p>Selected</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bus-layout">
+    <div class="driver-section">
+      <i class="fas fa-steering-wheel"></i>
+      <p>Driver</p>
+    </div>
+
+    <div class="seats-grid">
+      <div class="seat-row" *ngFor="let row of rows">
+        <div class="seat-wrapper" *ngFor="let col of columns">
+          <div
+            class="seat"
+            [class.booked]="isSeatBooked(row, col)"
+            [class.selected]="isSeatSelected(row, col)"
+            (click)="onSeatClick(row, col)"
+          >
+            {{row}}{{col}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking form will be added here later -->
+  <app-booking-form
+    *ngIf="showBookingForm && selectedSeat"
+    [selectedSeat]="selectedSeat"
+    (bookingComplete)="showBookingForm = false"
+  >
+  </app-booking-form>
+</div>

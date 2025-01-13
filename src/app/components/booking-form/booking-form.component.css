@@ -1,0 +1,131 @@
+.booking-form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.booking-form-wrapper {
+  background-color: var(--color-white-1);
+  border-radius: 1.2rem;
+  padding: 3rem;
+  width: 90%;
+  max-width: 50rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  font-size: 2.4rem;
+  color: var(--color-dark-1);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+label {
+  font-size: 1.4rem;
+  color: var(--color-dark-2);
+  font-weight: 500;
+}
+
+input, select {
+  padding: 1.2rem;
+  border: 1px solid var(--color-dark-2);
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+input.error, select.error {
+  border-color: var(--color-primary);
+}
+
+.error-message {
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  margin-top: 0.4rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.6rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  padding: 1.2rem 2.4rem;
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white-1);
+}
+
+.btn-primary:hover {
+  background-color: #a62828;
+}
+
+.btn-primary:disabled {
+  background-color: var(--color-dark-2);
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: var(--color-white-2);
+  color: var(--color-dark-1);
+}
+
+.btn-secondary:hover {
+  background-color: #e8e8e8;
+}
+
+@media (max-width: 768px) {
+  .booking-form-wrapper {
+    padding: 2rem;
+    width: 95%;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .btn {
+    padding: 1rem 2rem;
+  }
+}

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Seat} from "../../models/seat.interface";
+import {StorageService} from "../../services/storage.service";
 
 @Component({
   selector: 'app-seat-layout',
@@ -14,14 +15,18 @@ export class SeatLayoutComponent implements OnInit {
   rows = ['A', 'B', 'C', 'D', 'E'];
   columns = [1, 2, 3];
 
-  constructor() {
-    this.initializeSeats();
+  constructor(private storageService: StorageService) {
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loadSeats();
+  }
+
+  loadSeats() {
+    this.seats = this.storageService.getAllSeats();
+  }
 
   initializeSeats() {
-
     this.seats = this.rows.map(row =>
       this.columns.map(col => ({
         id: `${row}${col}`,

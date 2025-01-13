@@ -1,8 +1,9 @@
 export interface Booking {
   id: string;
-  busId: string;
-  seatId: string;
-  passengerName: string;
+  name: string;
+  busNo: string;
+  seatNo: string;
   destination: string;
   time: string;
+  bookingDate: string;
 }

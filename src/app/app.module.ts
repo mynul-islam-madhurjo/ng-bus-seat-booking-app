@@ -10,10 +10,12 @@ import { BookingFormComponent } from './components/booking-form/booking-form.com
 import { ModalComponent } from './components/shared/modal/modal.component';
 import {RouterModule, Routes} from "@angular/router";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { BookingListComponent } from './components/booking-list/booking-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/booking', pathMatch: 'full' },
   { path: 'booking', component: SeatLayoutComponent },
+  { path: 'booking-list', component: BookingListComponent },
   { path: 'admin', component: AdminPanelComponent },
   { path: '**', redirectTo: '/booking' }
 ];
@@ -26,7 +28,8 @@ const routes: Routes = [
     AdminPanelComponent,
     BookingFormComponent,
     ModalComponent,
-    NavbarComponent
+    NavbarComponent,
+    BookingListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,145 @@
+.nav {
+  width: 100%;
+  height: 7rem;
+  border-bottom: 1px solid var(--color-dark-2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--color-white-1);
+}
+
+.nav_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav_list {
+  display: flex;
+}
+
+.nav_items {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav_logo {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.nav_item {
+  position: relative;
+}
+
+.nav_link {
+  padding: 0.8rem 1.2rem;
+  color: var(--color-dark-1);
+  font-size: 1.6rem;
+  transition: color 0.3s ease;
+}
+
+.nav_link:hover {
+  color: var(--color-primary);
+}
+
+.active-link {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.profile-container {
+  position: relative;
+}
+
+.nav_profile {
+  cursor: pointer;
+  padding: 0.8rem;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.nav_profile:hover {
+  background-color: var(--color-white-2);
+}
+
+.nav_profile i {
+  font-size: 1.8rem;
+  color: var(--color-dark-1);
+}
+
+.profile-menu {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  width: 24rem;
+  background: var(--color-white-1);
+  border-radius: 0.8rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.profile-header {
+  padding: 1.6rem;
+  border-bottom: 1px solid var(--color-white-2);
+  font-weight: 600;
+  color: var(--color-dark-1);
+}
+
+.profile-options {
+  padding: 0.8rem 0;
+}
+
+.profile-options li a {
+  display: flex;
+  align-items: center;
+  padding: 1.2rem 1.6rem;
+  color: var(--color-dark-1);
+  transition: background-color 0.3s ease;
+}
+
+.profile-options li a:hover {
+  background-color: var(--color-white-2);
+}
+
+.profile-options li a i {
+  width: 2rem;
+  margin-right: 1.2rem;
+  font-size: 1.6rem;
+}
+
+.logout-option {
+  color: var(--color-primary) !important;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    height: auto;
+    padding: 1.5rem 0;
+  }
+
+  .nav_container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .nav_items {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .profile-menu {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 1.2rem 1.2rem 0 0;
+  }
+}

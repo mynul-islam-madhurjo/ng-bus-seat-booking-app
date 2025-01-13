@@ -1,0 +1,60 @@
+<nav class="nav">
+  <div class="container nav_container">
+    <a href="#" class="nav_logo">Bus Booking</a>
+
+    <ul class="nav_list">
+      <div class="nav_items">
+        <li class="nav_item">
+          <a routerLink="/" routerLinkActive="active-link"
+             [routerLinkActiveOptions]="{exact: true}" class="nav_link">
+            Home
+          </a>
+        </li>
+        <li class="nav_item">
+          <a routerLink="/booking" routerLinkActive="active-link"
+             class="nav_link">
+            Book Seat
+          </a>
+        </li>
+        <li class="nav_item">
+          <a routerLink="/admin" routerLinkActive="active-link"
+             class="nav_link">
+            Admin
+          </a>
+        </li>
+
+        <li class="nav_item profile-container">
+          <div class="nav_profile" (click)="toggleProfileMenu()">
+            <i class="fas fa-user"></i>
+          </div>
+
+          <div class="profile-menu" *ngIf="showProfileMenu">
+            <div class="profile-header">
+              Account
+            </div>
+            <ul class="profile-options">
+              <li>
+                <a routerLink="/profile">
+                  <i class="fas fa-user"></i>
+                  Profile
+                </a>
+              </li>
+              <li>
+                <a routerLink="/bookings">
+                  <i class="fas fa-ticket-alt"></i>
+                  My Bookings
+                </a>
+              </li>
+              <li>
+                <a class="logout-option">
+                  <i class="fas fa-sign-out-alt"></i>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </div>
+    </ul>
+  </div>
+</nav>
